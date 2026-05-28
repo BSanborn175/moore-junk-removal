@@ -764,5 +764,56 @@ footer {
     transform: translateY(-1px);
 }
 
+/* MOBILE STICKY CALL/SMS BAR */
+.mobile-sticky-cta {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background: #1a1a2e;
+    border-top: 2px solid #f59e0b;
+    display: flex;
+    z-index: 9999;
+    box-shadow: 0 -3px 10px rgba(0,0,0,0.15);
+}
+.mobile-sticky-cta a {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-weight: 700;
+    font-size: 0.95rem;
+    text-align: center;
+    transition: background-color 0.2s;
+}
+.mobile-sticky-cta .btn-sms-sticky {
+    background: #1e293b;
+    color: #cbd5e1;
+    border-right: 1px solid rgba(255,255,255,0.1);
+}
+.mobile-sticky-cta .btn-sms-sticky:hover {
+    background: #334155;
+}
+.mobile-sticky-cta .btn-call-sticky {
+    background: #f59e0b;
+    color: #1a1a2e;
+}
+.mobile-sticky-cta .btn-call-sticky:hover {
+    background: #fbbf24;
+}
+@media (min-width: 769px) {
+    .mobile-sticky-cta {
+        display: none;
+    }
+}
+@media (max-width: 768px) {
+    body {
+        padding-bottom: 60px;
+    }
+}
+
+
 
 

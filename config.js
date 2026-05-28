@@ -16,6 +16,12 @@ document.addEventListener("DOMContentLoaded", () => {
         el.href = SITE_CONFIG.phoneLink;
     });
 
+    // 1b. Update all dynamic SMS link hrefs (e.g. href="sms:...")
+    document.querySelectorAll(".dynamic-sms-link").forEach(el => {
+        el.href = SITE_CONFIG.phoneLink.replace("tel:", "sms:");
+    });
+
+
     // 2. Update all dynamic phone display texts
     document.querySelectorAll(".dynamic-phone-text").forEach(el => {
         // If it's a link, we don't want to overwrite the icon if there is one, but we check if it is just a tel link
