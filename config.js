@@ -76,11 +76,13 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!gutterFields) return;
 
         const checkGutter = () => {
-            if (selectEl.value === "Gutter Cleaning") {
-                gutterFields.style.display = "block";
-            } else {
-                gutterFields.style.display = "none";
-            }
+            const isGutter = selectEl.value === "Gutter Cleaning";
+            gutterFields.style.display = isGutter ? "block" : "none";
+            // Disabled controls are not submitted, so junk-removal inquiries
+            // never carry the gutter-only fields.
+            gutterFields.querySelectorAll("select, input, textarea").forEach(field => {
+                field.disabled = !isGutter;
+            });
         };
 
         selectEl.addEventListener("change", checkGutter);
@@ -91,6 +93,9 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelectorAll(".nav-dropdown > a").forEach(link => {
         link.addEventListener("click", (e) => {
             if (window.innerWidth <= 768) {
+                // On mobile the first tap opens the submenu instead of jumping to #services.
+                // "View All Services" inside the submenu still links to the full list.
+                e.preventDefault();
                 const parent = link.closest(".nav-dropdown");
                 if (parent) {
                     parent.classList.toggle("active");
