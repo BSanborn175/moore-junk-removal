@@ -67,4 +67,35 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
     });
+
+    // 7. Setup Conditional Gutter Cleaning Form Fields
+    document.querySelectorAll("select[name='service']").forEach(selectEl => {
+        const form = selectEl.closest("form");
+        if (!form) return;
+        const gutterFields = form.querySelector(".gutter-fields");
+        if (!gutterFields) return;
+
+        const checkGutter = () => {
+            if (selectEl.value === "Gutter Cleaning") {
+                gutterFields.style.display = "block";
+            } else {
+                gutterFields.style.display = "none";
+            }
+        };
+
+        selectEl.addEventListener("change", checkGutter);
+        checkGutter();
+    });
+
+    // 8. Mobile Nav Dropdown Toggle
+    document.querySelectorAll(".nav-dropdown > a").forEach(link => {
+        link.addEventListener("click", (e) => {
+            if (window.innerWidth <= 768) {
+                const parent = link.closest(".nav-dropdown");
+                if (parent) {
+                    parent.classList.toggle("active");
+                }
+            }
+        });
+    });
 });
