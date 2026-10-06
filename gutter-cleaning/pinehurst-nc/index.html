@@ -89,7 +89,7 @@
             "name": "How much does gutter cleaning cost in Pinehurst, NC?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Pricing depends on home height, gutter length, accessibility, roof configuration and the amount of debris present. Contact us for a free estimate specific to your Pinehurst property."
+              "text": "Pinehurst homes use our standard Moore County pricing: $1.00 per linear foot for first-story gutters and $1.50 per linear foot for second-story gutters, with a $150 minimum service charge. Pine needles and leaves, normal debris removal, accessible downspout clearing, cleanup and debris haul-away are included. Gutter guards that must be removed and reinstalled add $0.50 per linear foot affected."
             }
           },
           {
@@ -139,6 +139,7 @@
 
     <link rel="stylesheet" href="../../style.css">
     <script src="../../config.js" defer></script>
+    <script src="../../gutter-pricing.js" defer></script>
 </head>
 <body>
 
@@ -313,6 +314,23 @@
 
             <hr style="border: 0; border-top: 1px solid #e2e8f0; margin: 40px 0;">
 
+            <p class="section-label">Pinehurst Pricing</p>
+            <h2 style="font-size: 2rem; font-weight: 800; color: #1a1a2e; margin-bottom: 18px;">Simple Gutter Cleaning Pricing</h2>
+            <p style="color: #475569; font-size: 1.05rem; line-height: 1.8; margin-bottom: 20px;">
+                Gutter cleaning in Pinehurst is priced with the same standard rates we use throughout Moore County, whether your home is in the Village, Pinewild, Forest Creek or CCNC. Pine needles and leaves, accessible downspout clearing, cleanup and debris haul-away are included, not added on.
+            </p>
+            <div class="gp-city-pricing">
+                <ul>
+                    <li><strong>First story: $1.00 per linear foot</strong></li>
+                    <li><strong>Second story: $1.50 per linear foot</strong></li>
+                    <li><strong>$150 minimum service</strong></li>
+                    <li><strong>Gutter guards requiring removal: +$0.50 per linear foot affected</strong></li>
+                </ul>
+                <a href="../#calculator" class="gp-city-link">Calculate your exact estimated price &rarr;</a>
+            </div>
+
+            <hr style="border: 0; border-top: 1px solid #e2e8f0; margin: 40px 0;">
+
             <p class="section-label">Preventive Care</p>
             <h2 style="font-size: 2rem; font-weight: 800; color: #1a1a2e; margin-bottom: 18px;">Stop Pine Needles Before They Become a Drainage Problem</h2>
             <p style="color: #475569; font-size: 1.05rem; line-height: 1.8; margin-bottom: 24px;">
@@ -345,7 +363,7 @@
                 <div class="faq-item">
                     <div class="faq-question">How much does gutter cleaning cost in Pinehurst, NC?</div>
                     <div class="faq-answer">
-                        <p>Pricing depends on home height, gutter length, accessibility, roof configuration and the amount of debris present. Contact us for a free estimate specific to your Pinehurst property.</p>
+                        <p>Pinehurst homes use our standard Moore County pricing: $1.00 per linear foot for first-story gutters and $1.50 per linear foot for second-story gutters, with a $150 minimum service charge. Pine needles and leaves, normal debris removal, accessible downspout clearing, cleanup and debris haul-away are included. Gutter guards that must be removed and reinstalled add $0.50 per linear foot affected.</p>
                     </div>
                 </div>
                 <div class="faq-item">
@@ -454,6 +472,39 @@
                                         <option value="Downspout clogged">Downspout clogged</option>
                                         <option value="Not Sure">Not Sure</option>
                                     </select>
+                                </div>
+                            </div>
+                            <div class="gp-form-extra">
+                                <p class="gp-form-note">Optional: if you know your gutter length, enter it to see your estimate. Not sure? Leave these blank and we'll help measure.</p>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="gutter-first-ft" style="font-size: 0.85rem; font-weight: 600; color: #334155;">First-story gutter length (linear feet)</label>
+                                        <input type="number" id="gutter-first-ft" name="first_story_gutter_feet" min="0" step="any" inputmode="numeric" placeholder="e.g. 120" autocomplete="off" data-gp="first">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="gutter-second-ft" style="font-size: 0.85rem; font-weight: 600; color: #334155;">Second-story gutter length (linear feet)</label>
+                                        <input type="number" id="gutter-second-ft" name="second_story_gutter_feet" min="0" step="any" inputmode="numeric" placeholder="e.g. 80" autocomplete="off" data-gp="second">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="gutter-guards" style="font-size: 0.85rem; font-weight: 600; color: #334155;">Gutter guards that must be removed for cleaning?</label>
+                                        <select id="gutter-guards" name="gutter_guards" data-gp="guards">
+                                            <option value="">Select (optional)</option>
+                                            <option value="No">No</option>
+                                            <option value="Yes">Yes</option>
+                                            <option value="Not sure">Not sure</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group" data-gp="guard-wrap" hidden>
+                                        <label for="gutter-guard-ft" style="font-size: 0.85rem; font-weight: 600; color: #334155;">Approximate gutter-guard length (linear feet)</label>
+                                        <input type="number" id="gutter-guard-ft" name="gutter_guard_feet" min="0" step="any" inputmode="numeric" placeholder="e.g. 40" autocomplete="off" data-gp="guard-ft">
+                                    </div>
+                                </div>
+                                <p class="gp-form-msg" data-gp="form-msg" role="status" hidden></p>
+                                <div class="form-group">
+                                    <label for="gutter-estimate" style="font-size: 0.85rem; font-weight: 600; color: #334155;">Calculated gutter-cleaning estimate</label>
+                                    <textarea id="gutter-estimate" name="calculated_gutter_estimate" rows="3" readonly data-gp="estimate" placeholder="Enter your gutter length above to see your estimate"></textarea>
                                 </div>
                             </div>
                         </div>
