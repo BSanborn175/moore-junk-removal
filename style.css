@@ -182,8 +182,7 @@ nav {
 
 /* HERO */
 .hero {
-    background: linear-gradient(135deg, rgba(26,26,46,0.92) 0%, rgba(22,33,62,0.92) 100%),
-                url('images/hero-bg.jpg') center/cover no-repeat;
+    background: linear-gradient(135deg, rgba(26,26,46,0.92) 0%, rgba(22,33,62,0.92) 100%);
     padding: 80px 0;
     text-align: center;
     position: relative;
@@ -847,18 +846,25 @@ footer {
 }
 .form-row {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: 20px;
 }
 @media (min-width: 576px) {
     .form-row {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     }
 }
 .form-group {
     display: flex;
     flex-direction: column;
     gap: 8px;
+    min-width: 0;
+}
+.form-group select,
+.form-group input,
+.form-group textarea {
+    max-width: 100%;
+    min-width: 0;
 }
 .form-group label {
     font-size: 0.9rem;
@@ -960,3 +966,18 @@ footer {
 
 
 
+
+/* RESPONSIVE TABLE WRAPPER - wide blog tables scroll inside the wrapper, not the page */
+.table-scroll {
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Senior-downsizing 'about' two-column block: stack on mobile (overrides its inline grid) */
+@media (max-width: 768px) {
+    .stack-on-mobile {
+        grid-template-columns: minmax(0, 1fr) !important;
+        gap: 32px !important;
+    }
+}
