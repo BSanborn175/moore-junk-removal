@@ -150,7 +150,18 @@
         <div class="container nav-inner">
             <a href="../" class="nav-brand"><span class="dynamic-business-name">Moore County Junk Removal</span></a>
             <ul class="nav-links">
-                <li><a href="../#services">All Services</a></li>
+                <li class="nav-dropdown">
+                    <a href="../#services">All Services <span style="font-size:0.75rem;">&#9660;</span></a>
+                    <ul class="nav-dropdown-menu">
+                        <li><a href="../services/estate-cleanouts.html">Estate Cleanouts</a></li>
+                        <li><a href="../services/furniture-removal.html">Furniture Removal</a></li>
+                        <li><a href="../services/appliance-disposal.html">Appliance Removal</a></li>
+                        <li><a href="../services/hot-tub-removal.html">Hot Tub Removal</a></li>
+                        <li><a href="../services/yard-waste-removal.html">Yard Waste Removal</a></li>
+                        <li><a href="../gutter-cleaning/">Gutter Cleaning</a></li>
+                        <li><a href="../#services" style="border-top:1px solid rgba(255,255,255,0.08);margin-top:4px;padding-top:8px;color:#f59e0b;">View All Services &rarr;</a></li>
+                    </ul>
+                </li>
                 <li><a href="../#how-it-works">How It Works</a></li>
                 <li><a href="../#pricing">Pricing</a></li>
                 <li><a href="tel:+19104208159" class="nav-phone dynamic-phone-link dynamic-phone-text">📞 Call Now</a></li>
@@ -448,8 +459,34 @@
                                     <option value="Foreclosure Cleanout">Foreclosure Cleanout</option>
                                     <option value="Eviction Cleanout">Eviction Cleanout</option>
                                     <option value="Garage/Attic Cleanout">Garage or Attic Cleanout</option>
+                                    <option value="Gutter Cleaning">Gutter Cleaning</option>
                                     <option value="Other">Other / General Junk Hauling</option>
                                 </select>
+                            </div>
+                        </div>
+                        <!-- Gutter Cleaning Specific Fields -->
+                        <div class="gutter-fields" style="display: none; background: #fffbeb; border: 1px solid #fde68a; border-radius: 8px; padding: 16px; margin-bottom: 20px;">
+                            <p style="font-weight: 700; color: #92400e; margin-bottom: 12px; font-size: 0.95rem;">Gutter Cleaning Details</p>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="gutter-stories" style="font-size: 0.85rem; font-weight: 600; color: #334155;">Number of Stories</label>
+                                    <select id="gutter-stories" name="stories">
+                                        <option value="1 Story">1 Story</option>
+                                        <option value="2 Stories">2 Stories</option>
+                                        <option value="3+ Stories">3+ Stories</option>
+                                        <option value="Not Sure">Not Sure</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="gutter-condition" style="font-size: 0.85rem; font-weight: 600; color: #334155;">Gutter Condition</label>
+                                    <select id="gutter-condition" name="condition">
+                                        <option value="Routine Cleaning">Routine Cleaning</option>
+                                        <option value="Heavy leaves/pine needles">Heavy leaves / pine needles</option>
+                                        <option value="Water overflowing">Water overflowing</option>
+                                        <option value="Downspout clogged">Downspout clogged</option>
+                                        <option value="Not Sure">Not Sure</option>
+                                    </select>
+                                </div>
                             </div>
                         </div>
                         <div class="form-group">
@@ -486,6 +523,7 @@
                     <a href="garage-cleanout.html">Garage Cleanouts</a>
                     <a href="hot-tub-removal.html">Hot Tub Removal</a>
                     <a href="commercial-cleanouts.html">Commercial Cleanouts</a>
+                    <a href="../gutter-cleaning/">Gutter Cleaning</a>
                 </div>
                 <div class="footer-col">
                     <h4>Service Areas</h4>
