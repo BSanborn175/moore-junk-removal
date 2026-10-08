@@ -253,55 +253,84 @@
 
             <div class="gp-includes">
                 <p><strong>Your price includes normal gutter debris removal, pine needles and leaves, accessible downspout clearing, cleanup and debris haul-away, plus before-and-after photos when practical.</strong></p>
-                <p><strong>Gutter guards requiring removal and reinstallation: +$0.50 per linear foot affected.</strong></p>
+                <p><strong>Gutter guards that must be removed and reinstalled add $0.50 per linear foot affected. This charge is added to the gutter-cleaning total.</strong></p>
                 <p>There's no extra charge just because your gutters are full of pine needles or leaves. Normal Moore County pine debris is part of the standard service.</p>
+            </div>
+
+            <div class="gp-example">
+                <h3>Example</h3>
+                <p>A home with:</p>
+                <ul>
+                    <li>100 ft of first-story gutters</li>
+                    <li>100 ft of second-story gutters</li>
+                    <li>no gutter guards</li>
+                </ul>
+                <p>would be: $100 + $150 = <strong>$250</strong></p>
             </div>
 
             <div class="gp-calc" id="calculator" data-gutter-calculator>
                 <h2 class="gp-calc-title">Calculate Your Gutter Cleaning Price</h2>
-                <p class="gp-calc-sub">Enter the approximate length of your first-story and second-story gutters. Either field can be left blank. Don't know your gutter length? <a href="#gutter-length-help">We can help you figure it out</a>.</p>
+                <p class="gp-calc-sub">Enter the approximate length of your first-story and second-story gutters. Either field can be left blank. Not sure of your footage? See <a href="#gutter-measure-help" data-gp-open-measure>how to estimate it</a>, or <a href="#gutter-length-help">let us help</a>.</p>
                 <div class="gp-calc-grid">
                     <div class="gp-calc-inputs">
                         <div class="gp-field">
                             <label for="calc-first">First-story gutter length</label>
                             <div class="gp-input-unit">
-                                <input type="number" id="calc-first" min="0" step="any" inputmode="numeric" placeholder="0" autocomplete="off">
+                                <input type="number" id="calc-first" min="0" step="any" inputmode="numeric" placeholder="0" autocomplete="off" aria-describedby="calc-first-help">
                                 <span>linear feet</span>
                             </div>
+                            <p class="gp-field-help" id="calc-first-help">Enter gutter sections reachable at the first-story roofline.</p>
                         </div>
                         <div class="gp-field">
                             <label for="calc-second">Second-story gutter length</label>
                             <div class="gp-input-unit">
-                                <input type="number" id="calc-second" min="0" step="any" inputmode="numeric" placeholder="0" autocomplete="off">
+                                <input type="number" id="calc-second" min="0" step="any" inputmode="numeric" placeholder="0" autocomplete="off" aria-describedby="calc-second-help">
                                 <span>linear feet</span>
                             </div>
+                            <p class="gp-field-help" id="calc-second-help">Enter gutter sections located at the second-story roofline. On a two-story home, lower rooflines (porches, garages, additions) still count as first-story.</p>
                         </div>
-                        <fieldset class="gp-field">
+                        <details class="gp-measure" id="gutter-measure-help">
+                            <summary>How do I estimate my gutter length?</summary>
+                            <div class="gp-measure-body">
+                                <p><strong>You only need to measure the sections of your home that actually have gutters, not the entire perimeter of the house.</strong></p>
+                                <ul>
+                                    <li>Estimate each gutter run and add them together.</li>
+                                    <li>Use a tape measure along the ground beneath each gutter, if it's safe to reach from the ground.</li>
+                                    <li>Use approximate wall lengths if you know them.</li>
+                                    <li>If you're unsure, <a href="#contact" data-gp-help>send us your address and photos</a> and we'll help.</li>
+                                </ul>
+                                <p class="gp-safety"><strong>Safety:</strong> Do not climb onto your roof or use a ladder just to measure your gutters. An estimate is enough for the calculator, and we can confirm the footage before service.</p>
+                            </div>
+                        </details>
+                        <fieldset class="gp-field" aria-describedby="calc-guard-help">
                             <legend>Do your gutters have guards/screens that must be removed for cleaning?</legend>
                             <div class="gp-radio-row">
                                 <label><input type="radio" name="calc-guards" value="No" checked> No</label>
                                 <label><input type="radio" name="calc-guards" value="Yes"> Yes</label>
                                 <label><input type="radio" name="calc-guards" value="Not sure"> Not sure</label>
                             </div>
+                            <p class="gp-field-help" id="calc-guard-help">Gutter guards that must be removed and reinstalled add $0.50 per linear foot affected. This charge is added to the gutter-cleaning total.</p>
                         </fieldset>
                         <div class="gp-field" id="calc-guard-wrap" hidden>
                             <label for="calc-guard-ft">Linear feet with gutter guards</label>
                             <div class="gp-input-unit">
-                                <input type="number" id="calc-guard-ft" min="0" step="any" inputmode="numeric" placeholder="0" autocomplete="off">
+                                <input type="number" id="calc-guard-ft" min="0" step="any" inputmode="numeric" placeholder="0" autocomplete="off" aria-describedby="calc-guard-ft-help">
                                 <span>linear feet</span>
                             </div>
+                            <p class="gp-field-help" id="calc-guard-ft-help">Only the gutter sections where guards must be removed. This can't be more than your total gutter length.</p>
                         </div>
-                        <p class="gp-hint">Footage is rounded to the nearest whole foot. Gutter-guard footage can't be more than your total gutter length.</p>
+                        <p class="gp-hint">Footage is rounded to the nearest whole foot.</p>
                     </div>
-                    <div class="gp-result">
-                        <h3>Your Estimated Gutter Cleaning Price</h3>
+                    <div class="gp-result" role="region" aria-labelledby="calc-result-heading">
+                        <h3 id="calc-result-heading">Your Estimated Gutter Cleaning Price</h3>
                         <p class="gp-total" id="calc-total" hidden></p>
                         <p class="gp-status" id="calc-status">Enter your gutter length to calculate a price.</p>
                         <div class="gp-errors" id="calc-errors" hidden></div>
+                        <ul class="gp-breakdown" id="calc-breakdown" aria-label="Price breakdown" hidden></ul>
+                        <p class="gp-min-note" id="calc-min-note" hidden>Our minimum service charge for a gutter-cleaning visit is $150.</p>
                         <div class="gp-notes" id="calc-notes" hidden></div>
-                        <ul class="gp-breakdown" id="calc-breakdown" hidden></ul>
-                        <p class="gp-disclaimer">This estimate is based on the measurements you enter. We'll confirm the gutter length and accessibility before service. If your measurements are accurate and there are no unusual access or safety conditions, this is the price you can expect to pay.</p>
-                        <a href="#contact" class="btn-call" id="calc-request" hidden>Request This Estimate</a>
+                        <p class="gp-disclaimer">Based on the gutter footage you entered. We'll confirm the measurements and access before service. If the measurements are accurate and there are no unusual safety or access conditions, this is the price you can expect to pay.</p>
+                        <a href="#contact" class="btn-call" id="calc-request" hidden>Request Gutter Cleaning at This Estimated Price</a>
                         <p class="gp-sr-only" id="calc-live" aria-live="polite" aria-atomic="true"></p>
                         <noscript><p class="gp-status">The calculator needs JavaScript turned on. You can still use the rates above, or call or text (910) 420-8159.</p></noscript>
                     </div>
@@ -310,8 +339,8 @@
 
             <div class="gp-help" id="gutter-length-help">
                 <h3>Don't know your gutter length?</h3>
-                <p><strong>No problem. Send us your address and exterior photos and we'll help determine the gutter footage for you.</strong></p>
-                <a href="#contact" class="btn-call" data-gp-help>Help Me Calculate My Gutter Length</a>
+                <p><strong>Most homeowners don't. Send us your property address and a few exterior photos and we'll help estimate the gutter footage before confirming the job.</strong></p>
+                <a href="#contact" class="btn-call" data-gp-help>Help Me Measure My Gutters</a>
             </div>
         </div>
     </section>

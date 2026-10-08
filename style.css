@@ -1203,6 +1203,7 @@ fieldset.gp-field legend { margin-bottom: 10px; padding: 0; }
     border-radius: 16px;
     padding: 28px;
     min-width: 0;
+    align-self: start;
 }
 .gp-result h3 {
     font-size: 1.05rem;
@@ -1379,4 +1380,82 @@ fieldset.gp-field legend { margin-bottom: 10px; padding: 0; }
     .gp-help { padding: 20px 16px; }
     .gp-help .btn-call { width: 100%; }
     .gp-city-pricing { padding: 18px 16px; }
+}
+
+/* Gutter calculator UX refinements: example, field help, measurement guide, minimum note */
+.gp-example {
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 18px 22px;
+    margin: -16px 0 40px;
+}
+.gp-example h3 {
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: #1a1a2e;
+    margin-bottom: 6px;
+}
+.gp-example p,
+.gp-example li {
+    color: #334155;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+.gp-example ul { margin: 4px 0 8px 22px; }
+.gp-example strong { color: #1a1a2e; font-size: 1.1rem; }
+.gp-field-help {
+    font-size: 0.9rem;
+    color: #475569;
+    line-height: 1.5;
+}
+.gp-measure {
+    margin: 0 0 20px;
+    border: 2px solid #fde68a;
+    border-radius: 12px;
+    background: #fffbeb;
+}
+.gp-measure summary {
+    cursor: pointer;
+    padding: 14px 16px;
+    min-height: 48px;
+    font-weight: 700;
+    color: #92400e;
+    font-size: 1rem;
+    line-height: 1.4;
+    list-style-position: inside;
+}
+.gp-measure summary:focus-visible {
+    outline: 3px solid rgba(245, 158, 11, 0.5);
+    outline-offset: 2px;
+    border-radius: 10px;
+}
+.gp-measure-body {
+    padding: 0 16px 16px;
+    color: #334155;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+.gp-measure-body p { margin-bottom: 10px; }
+.gp-measure-body ul { margin: 0 0 12px 20px; }
+.gp-measure-body li { margin-bottom: 4px; }
+.gp-measure-body a { color: #b45309; font-weight: 700; text-decoration: underline; }
+.gp-safety {
+    background: #fff;
+    border-left: 4px solid #dc2626;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 12px;
+    margin-bottom: 0 !important;
+}
+.gp-min-note {
+    color: #fde68a;
+    font-size: 0.95rem;
+    font-weight: 600;
+    line-height: 1.5;
+    margin: -4px 0 14px;
+}
+@media (max-width: 480px) {
+    .gp-example { padding: 16px; }
+    .gp-measure summary { padding: 12px 14px; }
+    .gp-measure-body { padding: 0 14px 14px; }
 }

@@ -135,11 +135,12 @@
         }
         res.minimumApplied = service < PRICING.minimum;
         if (res.minimumApplied) {
-            res.lines.push({ label: "Calculated service", amount: money(service) });
+            // A subtotal line only adds information when both stories were entered.
+            if (f > 0 && s > 0) res.lines.push({ label: "Cleaning subtotal", amount: money(service) });
             res.lines.push({ label: "Minimum service charge", amount: money(PRICING.minimum), cls: "gp-min" });
         }
         if (g > 0) {
-            res.lines.push({ label: "Gutter guards: " + feet(g) + " " + TIMES + " " + rate(PRICING.guardPerFt), amount: money(guardAmt) });
+            res.lines.push({ label: "Gutter guards: " + feet(g) + " " + TIMES + " " + rate(PRICING.guardPerFt), amount: "+" + money(guardAmt) });
         }
 
         res.f = f;
@@ -171,10 +172,17 @@
         });
     }
 
-    function setInvalid(input, bad) {
+    // errorId: optional id of the element holding the error text, linked via aria-describedby while invalid.
+    function setInvalid(input, bad, errorId) {
         if (!input) return;
         if (bad) input.setAttribute("aria-invalid", "true");
         else input.removeAttribute("aria-invalid");
+        if (!errorId) return;
+        if (input.dataset.gpDescribedby === undefined) input.dataset.gpDescribedby = input.getAttribute("aria-describedby") || "";
+        var ids = input.dataset.gpDescribedby ? [input.dataset.gpDescribedby] : [];
+        if (bad) ids.push(errorId);
+        if (ids.length) input.setAttribute("aria-describedby", ids.join(" "));
+        else input.removeAttribute("aria-describedby");
     }
 
     function clear(el) {
@@ -200,6 +208,7 @@
         var service = form.querySelector("select[name='service']");
 
         [first, second, guardFt].forEach(blockInvalidKeys);
+        if (!msg.id) msg.id = "gutter-form-msg";
 
         function isGutter() {
             return !service || service.value === "Gutter Cleaning";
@@ -221,9 +230,9 @@
             second.setCustomValidity(feetError(rs));
             var guardMsg = showGuard ? (feetError(rg) || (res.guardTooLong ? res.errors[0] : "")) : "";
             guardFt.setCustomValidity(guardMsg);
-            setInvalid(first, !!feetError(rf));
-            setInvalid(second, !!feetError(rs));
-            setInvalid(guardFt, !!guardMsg);
+            setInvalid(first, !!feetError(rf), msg.id);
+            setInvalid(second, !!feetError(rs), msg.id);
+            setInvalid(guardFt, !!guardMsg, msg.id);
 
             if (res.status === "error") {
                 msg.textContent = res.errors.join(" ");
@@ -271,13 +280,29 @@
             service.value = "Gutter Cleaning";
             service.dispatchEvent(new Event("change", { bubbles: true }));
         }
+        var focusField = form.querySelector("input[name='name']");
         if (helpMessage) {
             var message = form.querySelector("textarea[name='message']");
-            if (message && !message.value.trim()) message.value = helpMessage;
+            if (message) {
+                var current = message.value;
+                // Never erase what the customer already typed; add the request once.
+                if (current.indexOf(helpMessage.trim()) === -1) {
+                    message.value = current.trim() ? current.replace(/\s+$/, "") + "\n\n" + helpMessage : helpMessage;
+                }
+                focusField = message;
+            }
         }
         var target = document.getElementById("contact") || form;
-        var nameField = form.querySelector("input[name='name']");
-        if (nameField) nameField.focus({ preventScroll: true });
+        var messageField = form.querySelector("textarea[name='message']");
+        if (focusField) {
+            focusField.focus({ preventScroll: true });
+            if (focusField === messageField) {
+                var end = focusField.value.length;
+                focusField.setSelectionRange(end, end);
+                focusField.scrollIntoView({ block: "center" });
+                return;
+            }
+        }
         target.scrollIntoView({ block: "start" });
     }
 
@@ -295,6 +320,7 @@
         var breakdownEl = calc.querySelector("#calc-breakdown");
         var liveEl = calc.querySelector("#calc-live");
         var requestBtn = calc.querySelector("#calc-request");
+        var minNoteEl = calc.querySelector("#calc-min-note");
         var lastLive = "";
         var latest = null;
 
@@ -316,9 +342,9 @@
             var res = compute(rf, rs, g, rg);
             latest = { res: res, g: g, rf: rf, rs: rs, rg: rg };
 
-            setInvalid(first, !!feetError(rf));
-            setInvalid(second, !!feetError(rs));
-            setInvalid(guardFt, g === "Yes" && (!!feetError(rg) || res.guardTooLong));
+            setInvalid(first, !!feetError(rf), "calc-errors");
+            setInvalid(second, !!feetError(rs), "calc-errors");
+            setInvalid(guardFt, g === "Yes" && (!!feetError(rg) || res.guardTooLong), "calc-errors");
 
             clear(errorsEl);
             res.errors.forEach(function (e) { addParagraph(errorsEl, "Please correct: " + e); });
@@ -329,6 +355,7 @@
             notesEl.hidden = res.notes.length === 0;
 
             clear(breakdownEl);
+            if (minNoteEl) minNoteEl.hidden = !(res.status === "ok" && res.minimumApplied);
             var live;
             if (res.status === "ok") {
                 totalEl.textContent = money(res.total);
@@ -427,7 +454,15 @@
             if (!mainForm) return;
             link.addEventListener("click", function (e) {
                 e.preventDefault();
-                goToForm(mainForm, "Please help me determine my gutter length. Property address: ");
+                goToForm(mainForm, "Please help me estimate my gutter length. Property address: ");
+            });
+        });
+
+        // "How to estimate it" link: open the measurement guide before jumping to it.
+        document.querySelectorAll("[data-gp-open-measure]").forEach(function (link) {
+            link.addEventListener("click", function () {
+                var guide = document.getElementById("gutter-measure-help");
+                if (guide) guide.open = true;
             });
         });
     });
