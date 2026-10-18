@@ -13,7 +13,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Estate Cleanouts in Moore County, NC | The Complete Cleanout Service | (910) 420-8159</title>
-    <meta name="description" content="Moore County's most thorough estate cleanout service. We clear entire homes — every room, garage, attic, and outbuilding — in Pinehurst, Southern Pines, Aberdeen, and all of Moore County. Probate-ready, remote-family friendly, donation-first approach. Free estimates. (910) 420-8159.">
+    <meta name="description" content="Estate cleanouts in Pinehurst, Southern Pines &amp; all of Moore County, NC. $800 all-inclusive full 7 × 14 trailer load: labor, hauling, fuel &amp; disposal included. Free estimates.">
     <meta name="robots" content="index, follow">
     <meta name="geo.region" content="US-NC">
     <meta name="geo.placename" content="Moore County, North Carolina">
@@ -69,11 +69,16 @@
         "areaServed": {"@type": "AdministrativeArea", "name": "Moore County, NC"},
         "description": "Complete estate cleanout service in Moore County, NC. We clear entire homes, donate usable items, handle appliance and electronics recycling, and leave properties broom-clean for sale or family transfer.",
         "offers": {
-          "@type": "AggregateOffer",
+          "@type": "Offer",
+          "price": "800",
           "priceCurrency": "USD",
-          "lowPrice": "300",
-          "highPrice": "1500",
-          "description": "Estate cleanout pricing based on home size and volume. Full 2–3 bedroom homes in Moore County typically range $500–$900."
+          "description": "Full 7 × 14 dump trailer load, all-inclusive: labor, loading, hauling, fuel, and standard disposal fees. Smaller cleanouts are custom-quoted; multiple loads are $800 per full load. Heavy or specialized materials are quoted separately.",
+          "priceSpecification": {
+            "@type": "UnitPriceSpecification",
+            "price": "800",
+            "priceCurrency": "USD",
+            "referenceQuantity": {"@type": "QuantitativeValue", "value": 1, "unitText": "full trailer load"}
+          }
         }
       },
       {
@@ -88,7 +93,7 @@
           {
             "@type": "Question",
             "name": "How much does an estate cleanout cost in Moore County, NC?",
-            "acceptedAnswer": {"@type": "Answer", "text": "Estate cleanout costs in Moore County depend on the size of the home and the volume of items remaining. A partial cleanout (a few rooms) typically runs $300–$500. A full 2–3 bedroom home in Pinehurst, Southern Pines, or Aberdeen usually costs $500–$900. Larger homes with full attics, garages, and outbuildings can run $900–$1,500 or more. All pricing is confirmed upfront. Call (910) 420-8159 or text photos for a free estimate."}
+            "acceptedAnswer": {"@type": "Answer", "text": "A full 7 × 14 dump trailer load is $800, all-inclusive: labor, loading, hauling, fuel, and standard disposal fees are included. Smaller estate cleanouts are custom-quoted based on the volume of material removed, and larger estates are billed at $800 per full trailer load. Heavy or specialized materials are quoted before work begins. We provide free estimates — call (910) 420-8159."}
           },
           {
             "@type": "Question",
@@ -162,7 +167,21 @@
         .loc-service-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 14px; margin-top: 24px; }
         .loc-service-link { display: flex; align-items: center; gap: 10px; background: #fff; border: 1px solid #e2e8f0; border-radius: 10px; padding: 14px 18px; text-decoration: none; color: #1a1a2e; font-weight: 700; font-size: 0.9rem; transition: all 0.2s; }
         .loc-service-link:hover { border-color: #f59e0b; background: #fffbeb; }
-    </style>
+        .estate-price-copy { text-align: center; max-width: 680px; margin: 0 auto 14px; color: #475569; font-size: 1.02rem; line-height: 1.7; }
+        .estate-trust { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin: 22px auto 30px; padding: 0; list-style: none; }
+        .estate-trust li { background: #fff; border: 1px solid #e2e8f0; border-radius: 999px; padding: 7px 14px; font-size: 0.85rem; font-weight: 700; color: #1a1a2e; margin: 0; }
+        .pricing-card.estate-featured { border: 2px solid #f59e0b; box-shadow: 0 8px 24px rgba(245,158,11,0.15); }
+        .estate-includes { list-style: none; padding: 0; margin: 12px 0 0; text-align: left; display: inline-block; }
+        .estate-includes li { font-size: 0.9rem; color: #334155; margin: 0 0 6px; padding: 0; }
+        .estate-fine { text-align: center; font-size: 0.88rem; color: #64748b; max-width: 680px; margin: 22px auto 0; line-height: 1.6; }
+        .estate-cta { text-align: center; margin-top: 26px; }
+        .estate-cta .btn-call { justify-content: center; text-align: center; max-width: 100%; }
+        .estate-prose .estate-price-copy { text-align: left; max-width: none; margin: 0 0 18px; }
+        .estate-prose .pricing-card p { font-size: 0.9rem; line-height: 1.6; margin-bottom: 0; }
+        .estate-prose .estate-includes { padding-left: 0; }
+        .estate-prose .estate-fine { text-align: left; max-width: none; }
+        .estate-prose .estate-trust { padding-left: 0; justify-content: flex-start; }
+</style>
 </head>
 <body>
 
@@ -201,7 +220,7 @@
             </p>
             <div class="hero-ctas">
                 <a href="tel:+19104208159" class="btn-call dynamic-phone-link" id="estate-hero-call">📞 Call (910) 420-8159</a>
-                <a href="../../contact/" class="btn-secondary">Text Photos for a Quote →</a>
+                <a href="../../contact/" class="btn-secondary">Get Your Free Estate Cleanout Estimate →</a>
             </div>
             <div class="hero-trust">
                 <div class="trust-item"><span class="icon">🏠</span> Full-Home Clearing</div>
@@ -229,7 +248,7 @@
             <!-- QUICK ANSWER BLOCK -->
             <div class="answer-block">
                 <strong>Quick Answer — Estate Cleanouts in Moore County, NC</strong>
-                <p>An estate cleanout is the complete removal of belongings, furniture, and debris from a home after a death, a move to assisted living, an inherited property transfer, or a senior downsizing. Moore County Junk Removal clears entire homes in Pinehurst, Southern Pines, Aberdeen, and all of Moore County — donating usable items, recycling appliances and electronics, and leaving the property broom-clean. Full 2–3 bedroom home cleanouts typically run <strong>$500–$900</strong>. Call or text photos to <strong>(910) 420-8159</strong> for a free estimate.</p>
+                <p>An estate cleanout is the complete removal of belongings, furniture, and debris from a home after a death, a move to assisted living, an inherited property transfer, or a senior downsizing. Moore County Junk Removal clears entire homes in Pinehurst, Southern Pines, Aberdeen, and all of Moore County — donating usable items, recycling appliances and electronics, and leaving the property broom-clean. Pricing is transparent and all-inclusive: <strong>$800 per full 7 × 14 dump trailer load</strong>, with labor, hauling, fuel, and standard disposal fees included; smaller jobs are custom-quoted. Call or text photos to <strong>(910) 420-8159</strong> for a free estimate.</p>
             </div>
 
             <h2>What Is an Estate Cleanout?</h2>
@@ -288,7 +307,7 @@
                     <div class="process-step-num">1</div>
                     <div class="process-step-body">
                         <h3>Initial Consultation (Phone, Text, or On-Site)</h3>
-                        <p>You describe or show us the property — by phone, by texting photos, or through an on-site walkthrough. We ask about scope (full home vs. specific areas), timeline, any access requirements (gated community, lockbox, HOA restrictions), and any items that should be set aside for family or donation. We give you a firm price range at this stage.</p>
+                        <p>You describe or show us the property — by phone, by texting photos, or through an on-site walkthrough. We ask about scope (full home vs. specific areas), timeline, any access requirements (gated community, lockbox, HOA restrictions), and any items that should be set aside for family or donation. We give you a free estimate at this stage, based on our all-inclusive $800 full-trailer-load pricing.</p>
                     </div>
                 </div>
                 <div class="process-step">
@@ -356,24 +375,74 @@
                 </tbody>
             </table>
 
-            <h2>Estate Cleanout Pricing in Moore County</h2>
+            <h2>Transparent, All-Inclusive Estate Cleanout Pricing</h2>
 
-            <p>Estate cleanout pricing depends primarily on three factors: how much remains in the home, the size of the home, and any special handling requirements (gated access, multiple story navigation, appliances requiring refrigerant certification). Here are typical ranges for Moore County:</p>
+            <p class="estate-price-copy">Our upgraded 7 × 14 dump trailer allows us to handle large estate cleanouts efficiently. A full trailer load is $800, including labor, loading, hauling, fuel, and standard disposal fees.</p>
+
+            <p class="estate-price-copy">Smaller cleanouts are priced according to the amount of material removed. We provide free estimates so you know what to expect before work begins. Here is how estate cleanout cost works for families in Pinehurst, Southern Pines, and across Moore County, NC:</p>
+
+            <ul class="estate-trust">
+                <li>🇺🇸 Veteran-Owned Local Business</li>
+                <li>✅ All-Inclusive Pricing</li>
+                <li>📝 Free Estimates</li>
+                <li>🚛 Large 7 × 14 Dump Trailer</li>
+            </ul>
+
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>Partial Loads</h3>
+                    <div class="pricing-range">Custom Quote</div>
+                    <p>Smaller cleanouts, such as a single room, attic, or storage unit, are priced by the volume of material removed.</p>
+                </div>
+                <div class="pricing-card estate-featured">
+                    <h3>Full Trailer Load</h3>
+                    <div class="pricing-range">$800</div>
+                    <p>One full 7 × 14 dump trailer load, all-inclusive:</p>
+                    <ul class="estate-includes">
+                        <li>✓ Labor &amp; loading</li>
+                        <li>✓ Transportation &amp; hauling</li>
+                        <li>✓ Fuel</li>
+                        <li>✓ Standard landfill &amp; disposal fees</li>
+                    </ul>
+                </div>
+                <div class="pricing-card">
+                    <h3>Multiple Loads</h3>
+                    <div class="pricing-range">$800 <span style="font-size: 1rem; font-weight: 700; color: #64748b;">per load</span></div>
+                    <p>Whole-home and large estate cleanouts are billed at $800 for each full trailer load. Free estimates before any work begins.</p>
+                </div>
+            </div>
+
+            <p class="estate-fine">No weight surcharges on standard household loads. Heavy or specialized materials (concrete, dirt, roofing, or construction debris) and hoarder cleanouts are quoted separately before work begins.</p>
 
             <table>
                 <thead>
-                    <tr><th>Home / Scope</th><th>Typical Price Range</th><th>Notes</th></tr>
+                    <tr><th>Add-On Service</th><th>Typical Price</th><th>Notes</th></tr>
                 </thead>
                 <tbody>
-                    <tr><td>Partial cleanout (1–3 rooms)</td><td>$300–$500</td><td>Selective clearing, not full home</td></tr>
-                    <tr><td>Small home / condo (under 1,200 sq ft)</td><td>$400–$650</td><td>Common for Pinehurst Village cottages</td></tr>
-                    <tr><td>2–3 bedroom home (standard)</td><td>$500–$900</td><td>Most common Moore County estate scope</td></tr>
-                    <tr><td>3–4 bedroom home with garage</td><td>$700–$1,100</td><td>Includes full garage and attic</td></tr>
-                    <tr><td>Large home / estate (4+ bedrooms, outbuildings)</td><td>$900–$1,500+</td><td>Multi-day jobs, multiple trailer loads</td></tr>
                     <tr><td>Hot tub included</td><td>Add $250–$500</td><td>On-site dismantling required</td></tr>
                     <tr><td>Shed demolition included</td><td>Add $300–$600</td><td>Structure removal, debris hauled</td></tr>
                 </tbody>
             </table>
+
+            <div class="estate-cta">
+                <a href="../../contact/" class="btn-call">Get Your Free Estate Cleanout Estimate</a>
+            </div>
+
+            <h3>Recent Estate &amp; Garage Cleanouts</h3>
+            <div class="gallery-grid" style="margin-top: 16px;">
+                <div class="gallery-item">
+                    <img src="../../images/estate-cleanout-furniture-piano-trailer-southern-pines-nc.jpg" alt="Estate cleanout furniture and piano loaded for hauling in Southern Pines NC" loading="lazy">
+                    <div class="gallery-caption">Estate cleanout — Southern Pines</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="../../images/garage-cleanout-before-moore-county-nc.jpg" alt="Garage full of boxes and junk before a cleanout in Moore County NC" loading="lazy">
+                    <div class="gallery-caption">Before — garage cleanout, Moore County</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="../../images/garage-cleanout-after-empty-moore-county-nc.jpg" alt="Empty, swept garage after a cleanout in Moore County NC" loading="lazy">
+                    <div class="gallery-caption">After — cleared and swept</div>
+                </div>
+            </div>
 
             <blockquote>All estate cleanout pricing is confirmed in writing before any work begins. There are no surprise fees at the end, no separate dump charges, and no additional charges for donation drop-offs. Landfill tipping fees are included in the quoted price.</blockquote>
 
@@ -536,7 +605,7 @@
                 </div>
                 <div class="faq-item">
                     <div class="faq-question">How much does an estate cleanout cost in Moore County?</div>
-                    <div class="faq-answer"><p>A partial cleanout (1–3 rooms) runs $300–$500. A full 2–3 bedroom home in Pinehurst or Southern Pines typically costs $500–$900. Larger homes with outbuildings and full attics can run $900–$1,500+. All pricing is confirmed before work begins. Call (910) 420-8159 or text photos for a free estimate.</p></div>
+                    <div class="faq-answer"><p>A full 7 × 14 dump trailer load is $800, all-inclusive: labor, loading, hauling, fuel, and standard disposal fees are included. Smaller estate cleanouts are custom-quoted based on the volume of material removed, and larger estates are billed at $800 per full trailer load. Heavy or specialized materials are quoted before work begins. We provide free estimates — call (910) 420-8159.</p></div>
                 </div>
                 <div class="faq-item">
                     <div class="faq-question">Can you do an estate cleanout if I'm out of state?</div>
@@ -573,7 +642,8 @@
             <h2>Need an Estate Cleanout in Moore County?</h2>
             <p>Call or text photos for a free estimate. We work with families on-site and remotely throughout Pinehurst, Southern Pines, Aberdeen, and all of Moore County, NC.</p>
             <a href="tel:+19104208159" class="btn-call dynamic-phone-link dynamic-phone-text" style="font-size: 1.3rem;" id="estate-cta-call">📞 (910) 420-8159</a>
-            <p style="margin-top: 12px; color: #64748b; font-size: 0.9rem;">Free estimates · Upfront pricing · Mon–Sat 7AM–7PM · Remote coordination available</p>
+            <a href="../../contact/" class="btn-secondary" style="margin-top: 12px;">Get Your Free Estate Cleanout Estimate →</a>
+            <p style="margin-top: 12px; color: #64748b; font-size: 0.9rem;">Free estimates · $800 all-inclusive full trailer load · Mon–Sat 7AM–7PM · Remote coordination available</p>
         </div>
     </section>
 
